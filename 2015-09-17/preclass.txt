@@ -8,7 +8,7 @@ that you can figure out the numerical jargon.
 
 1.  What are one or two points that you found least clear in the
     9/17 slide decks (including the narration)?
-
+	I'm still not really sure I understand the difference between the classes of PDEs
 2.  Fill in the most straightforward implementation you can think of
     for multiplying a compressed sparse row matrix by a vector.
     Note: It is fine to look up the answer elsewhere!  If you do,
@@ -21,18 +21,23 @@ that you can figure out the numerical jargon.
           int* ptr; /* Offsets of the start of each row in pr
                        (ptr[n] = number of nonzeros) */
       } csr_t;
-    
+    %im assuming there is a pointer for each row even if the row is empty in which case ptr(k) = ptr(k+1)
       void sparse_multiply(csr_t* A, double* x, double* result)
       {
-          /* Fill in here */
+	 
+	  for(k=0; k <n; k++){
+		result(k)=0;
+		for(j=ptr(k), j< ptr(k+1), j++){		
+			result[k]+=data(i)*x(col(i));
+		}
       } 
 
 3.  From the slides, complete the following short code:
-
+	% im gonna assume (x,y) is the index on the grid so that index (x,y) is really (x*h,y*h) which I think is what we would actually do?
       double laplacian_u(double (*u)(double x, double y),
                          double h, double x, double y)
       {
-          /* Estimate the Laplacian applied to u at (x,y) */
+		return (4*u(x,y)-u(x-1,y)-u(x+1,j)-u(x,y-1)-u(x,y+1))/(h*h)
       }
 
     If you are unfamiliar with the syntax, the first argument to
@@ -61,3 +66,4 @@ that you can figure out the numerical jargon.
     several steps without communicating, can you describe how to
     similarly advance this scheme?  Are there any advantages to such
     an organization if there is only one core available?
+	I dont know how to answer this question

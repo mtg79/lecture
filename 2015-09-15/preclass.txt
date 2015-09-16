@@ -4,7 +4,8 @@ If you run "make glider", you can see a small example of running
 the glider pattern for a few generations.
 
 0.  How much time did you spend on this pre-class exercise, and when?
-
+30 minutes 
+9/16 (after class)
 1.  What are one or two points that you found least clear in the
     9/15 slide decks (including the narration)?
 
@@ -13,6 +14,9 @@ the glider pattern for a few generations.
     timer to the code and run on the totient node.  How many cells per
     second can we update for a board that fits in L3 cache?  For a
     board that does not fit?
+board with size n=(15,000,000/2)^(1/2) fit in L3 
+10^(-09) sec per cell
+same, therefore not memory bound? 
 
 3.  Assuming that we want to advance time by several generations,
     suggest a blocking strategy that would improve the operational
@@ -20,11 +24,18 @@ the glider pattern for a few generations.
     not dilute, so that we must still consider every cell.  You may
     want to try your hand at implementing your strategy (though you
     need not spend too much time on it).
-
+	a similar strategy to the parallel discussed in the slides would work: Load a block that fits in L3, we need a block for which we will complete + 
+	bands of cells that are as large as the number of generations we want to perform
+	
 4.  Comment on what would be required to parallelize this code
     according to the domain decomposition strategy outlined in the
     slides.  Do you think you would see good speedups on one of
     the totient nodes?  Why or why not?
+	I am not I understand what the first part of the question means but here's my try: You would need one processor with a cache big enough to hold 
+	some portion of the board. Each processor performs several generation, and waits until every other is done, then exchange all the information about the boundary and repeat.
+	
+	I think there would be a good speed up because it seems that the amount of information that needs to be exchanged between the different
+	processors would be fairly small: only the margins, which are O(n), compared to the computations on the board which are o(n^2)
 
 5.  Suppose we want to compute long-range interactions between two
     sets of particles in parallel using the obvious n^2 algorithm in a
@@ -49,3 +60,5 @@ the glider pattern for a few generations.
     Based on what you know about memories and parallel architecture,
     do you see any features of this approach that are likely to lead
     to poor performance?
+	
+	I think the dependence between particles might mess with the pipelining and slow the process?

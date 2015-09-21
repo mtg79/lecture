@@ -1,8 +1,10 @@
 0.  How much time did you spend on this pre-class exercise, and when?
-
+	9/21, 1:15 so far
 1.  What are one or two points that you found least clear in the
     9/22 slide decks (including the narration)?
-
+	-I thought I understood the general idea of stack queue but I had ab hard time doing exercise 3, and I still have no idea if it's right
+	-Doing the quetsions I got confused between with the thread/processor. Is the idea that every thread has a assigned processor?
+	 or multiple processor work on a thread?
 2.  The pthread_mc.c file in the demo subdirectory runs a Monte Carlo
     simulation to estimate the expected value of a uniform random
     variable.  The "-p" option sets the number of processors used,
@@ -12,16 +14,18 @@
        terms of the number of trials (N), number of processors (p),
        time per trial (t_trial), and time to update the global
        counters in the critical section (t_update).
-
+	   run time = N*t_trial/p + p*t_update
+	   -divide second term by b if you we can use batch
     b) Run the code with a few different parameter values in order
        to estimate N, t_trial, and t_update for this code on
        a totient compute node.
-
+		my model must be wrong? I don't see how I could determine N or t_trial since they are multiplied
     c) Based on your model, suggest a strategy for choosing the batch
        size.  How might you generalize this strategy to automatically
        choose batch sizes for different types of computational
        experiments?
-    
+		Pick (p*,b*)=argmin(N*t_trial/p + p*t_update/b*)
+		
 3.  In the workq subdirectory of this directory, there is a basic work
     queue implementation.  Following the strategy outlined in the
     slides, add synchronization calls in the locations marked TODO.

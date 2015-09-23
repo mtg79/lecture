@@ -1,5 +1,5 @@
 0.  How much time did you spend on this pre-class exercise, and when?
-
+9/23,1h
 1.  What are one or two points that you found least clear in the
     9/24 slide decks (including the narration)?
 
@@ -12,17 +12,24 @@
        terms of the number of trials (N), number of processors (p),
        time per trial (t_trial), and time to update the global
        counters in the critical section (t_update).
-
+	same as last time?
+	run time = N/p*t_update+N/b*t_trial
     b) Run the code with a few different parameter values in order
        to estimate N, t_trial, and t_update for this code on
        a totient compute node.
-
+	   I can't figure out how to see what's printed when running on the compute node
     c) Based on your model, suggest a strategy for choosing the batch
        size.  How might you generalize this strategy to automatically
        choose batch sizes for different types of computational
        experiments?
-
+	minimize function in a?
 3.  The "OpenMP pitfalls" paper describes some common pitfalls (both
     performance and correctness) in OpenMP codes.  Go through the
     checklist in the paper for omp_mc.c.  What performance mistakes
     are there in the demonstration implementation?
+	-"try to get rid of the private clause and declare private variables at the beginning of the parallel region instead"
+	-use default(none)
+	-explicitely specify the kind of schedule you choose
+	-might be able to use atomic instead of critical for the =+ operations?
+	
+	

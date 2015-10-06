@@ -11,12 +11,21 @@
     while "-b" sets the number of trials between synchronizations.
 
     a) Write a model for the run time for this simulation code in
+<<<<<<< HEAD
        terms of the number of trials (N), number of processors (p),
        time per trial (t_trial), and time to update the global
        counters in the critical section (t_update).
 	   run time = N/p*t_trial + N/b*t_update
 		
 	   b) Run the code with a few different parameter values in order
+=======
+       terms of the number of trials (N), batch size (B),
+       number of processors (p), time per trial (t_trial), 
+       and time to update the global counters in the critical 
+       section (t_update).
+
+    b) Run the code with a few different parameter values in order
+>>>>>>> upstream/master
        to estimate N, t_trial, and t_update for this code on
        a totient compute node.
 	   If I increase p or b (or both) the speed goes down dramaticallu

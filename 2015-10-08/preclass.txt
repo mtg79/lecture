@@ -24,6 +24,13 @@
 	I find that I sometimes get lost very quickly because I have no idea what a term that is probably obvious to most of the class means.
 	For example last Thursday you discussed different kind of offloads,	and I did not know what offloads were or were used for so I didn't understand much of that section of the class.
 	
+	The projects are very interesting, but a bit overwhelming as they require a very large amount of time to do really well,
+	especially for someone who is not comfortable with a lot of the tools we are using in the class.
+	Also, the randomly assigned groups seems to create an incentive for some people to not do anything, which does not help with the assignment being overwhelming.
+	
+	
+	
+	
 	
 3.  The ring demo implements the protocol described in the particle
     systems slide deck from 9/15:
